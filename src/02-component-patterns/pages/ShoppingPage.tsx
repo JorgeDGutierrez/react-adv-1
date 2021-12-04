@@ -52,7 +52,7 @@ export const ShoppingPage = () => {
                     <ProductTitle style={{ fontWeight: 'bold' }} />
                     <ProductButtons style={{
                         display: 'flex',
-                        justifyContent: 'end'
+                        justifyContent: 'center'
                     }}/>
                 </ProductCard>
             </div>
