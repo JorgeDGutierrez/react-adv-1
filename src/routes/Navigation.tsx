@@ -37,7 +37,7 @@ export const Navigation = () => {
             <h1>Users</h1>
           </Route>
           <Route path="/">
-            <ShoppingPage />
+            <ShoppingPage  />
           </Route>
         </Switch>
       </div>
