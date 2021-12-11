@@ -7,43 +7,29 @@ export const useShoppingCart = () => {
 
     const onProductCountChange = ( {count, product}: {count: number, product: Product} ) => {
 
+        console.log({count});
+        
+
         setShoppingCart( oldShoppingCart => {
-
-        const productInCart: ProductInCart = oldShoppingCart[product.id] || {...product, count: 0};
-
-        if( Math.max(productInCart.count + count, 0) > 0 ) {
-
-            productInCart.count += count;
-
-            return {
-                ...oldShoppingCart,
-                [product.id]: productInCart
-            };
-        }
-        //Borrar el producto
-            const { [product.id]: toDelete, ...rest } = oldShoppingCart;
-                 // console.log('toDelete', toDelete);
-            return rest;
-
             
             //delete
-            // if (count === 0) {
+            if (count === 0) {
 
-            //     const newShoppingCart = {   ...oldShoppingCart };
-            //     delete newShoppingCart[product.id];
-            //     return newShoppingCart;
+                const newShoppingCart = {   ...oldShoppingCart };
+                delete newShoppingCart[product.id];
+                return newShoppingCart;
                 
-            //     // const { [product.id]: toDelete, ...rest } = oldShoppingCart;
-            //     // console.log('toDelete', toDelete);
+                // const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+                // console.log('toDelete', toDelete);
                 
-            //     // return rest;
-            // }
+                // return rest;
+            }
 
             
-            // return {
-            //     ...oldShoppingCart,
-            //     [product.id]: { ...product, count }
-            // }
+            return {
+                ...oldShoppingCart,
+                [product.id]: { ...product, count }
+            }
         })
         // console.log('shoppingCart', shoppingCart);
         
